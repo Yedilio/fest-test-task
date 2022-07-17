@@ -9,4 +9,9 @@ export class CarsPageComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    console.log('filterValue: ', filterValue);
+  }
 }

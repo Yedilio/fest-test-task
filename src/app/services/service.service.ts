@@ -14,9 +14,9 @@ export class ServiceService {
 
   constructor(private http: HttpClient) {}
 
-  getCarsList(): Observable<any> {
+  getCarsList(q: string = ''): Observable<any> {
     return this.http
-      .get('http://localhost:3000/cars', {})
+      .get('http://localhost:3000/cars' + (q ? '?q=' + q : ''), {})
       .pipe(catchError(this.handleError));
   }
 

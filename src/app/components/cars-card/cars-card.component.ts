@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CarsCardComponent implements OnInit {
   cars$!: Observable<CarList[]>;
-  reload$ = new BehaviorSubject<boolean>(false);
+  reload$ = new BehaviorSubject<string>('');
   compareListCar: CarList[] = [];
 
   constructor(
@@ -24,11 +24,12 @@ export class CarsCardComponent implements OnInit {
   ngOnInit(): void {
     localStorage.removeItem('compareList');
 
-    this.cars$ = this.reload$.pipe(switchMap(() => this.service.getCarsList()));
+    this.cars$ = this.reload$.pipe(
+      switchMap((q) => this.service.getCarsList(q))
+    );
   }
 
   addToCompare(car: any) {
-    console.log('this.compareListCar: ', this.compareListCar);
     const index = this.compareListCar.findIndex((el) => el.id === car.id);
 
     if (index > -1) {
@@ -39,6 +40,11 @@ export class CarsCardComponent implements OnInit {
       localStorage.removeItem('compareList');
       localStorage.setItem('compareList', JSON.stringify(this.compareListCar));
     }
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.reload$.next(filterValue);
   }
 
   openDelete(car: any) {
@@ -55,7 +61,7 @@ export class CarsCardComponent implements OnInit {
             .deleteCar(car.id)
             .pipe(take(1))
             .subscribe(() => {
-              this.reload$.next(true);
+              this.reload$.next('');
               this.toast.success('Success');
             });
         }

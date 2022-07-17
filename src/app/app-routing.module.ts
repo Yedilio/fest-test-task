@@ -11,11 +11,11 @@ export const AppRoutes: { routes: Routes; module: string } = {
     { path: '', redirectTo: 'car-shop', pathMatch: 'full' },
     {
       path: 'car-shop',
-      component: CarsPageComponent,
-      children: [
-        { path: '', redirectTo: 'list', pathMatch: 'full' },
-        { path: 'list', component: CarsCardComponent },
-      ],
+      component: CarsCardComponent,
+      // children: [
+      //   { path: '', redirectTo: 'list', pathMatch: 'full' },
+      //   { path: 'list', component: CarsCardComponent },
+      // ],
     },
     // {
     //   path: 'car-shop',

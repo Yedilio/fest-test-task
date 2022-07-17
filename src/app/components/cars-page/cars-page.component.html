@@ -1,6 +1,13 @@
 <div class="_container">
   <mat-toolbar color="none">
-    <button mat-icon-button></button>
+    <mat-form-field appearance="legacy">
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Search as car"
+      />
+    </mat-form-field>
 
     <span class="example-spacer"></span>
     <button

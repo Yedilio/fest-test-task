@@ -1,3 +1,26 @@
+<div class="_container">
+  <mat-toolbar color="none">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Search a car"
+      />
+    </mat-form-field>
+
+    <span class="example-spacer"></span>
+    <button
+      mat-button
+      [routerLink]="'/add-edit-car'"
+      [queryParams]="{ id: 'new' }"
+    >
+      Add car
+    </button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</div>
+
 <div class="cars">
   <div class="car-block" *ngFor="let car of cars$ | async">
     <div class="title">
