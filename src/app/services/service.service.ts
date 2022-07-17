@@ -73,6 +73,7 @@ export interface CarList {
   Displacement?: number;
   Miles_per_Gallon?: number;
   Origin?: string;
+  photoPath?: string;
   Price?: number;
   Weight_in_lbs?: number;
   id?: number;

@@ -21,32 +21,10 @@
       "id": 9
     },
     {
-      "Acceleration": 17.5,
-      "Currency": "EUR",
-      "Cylinders": 4,
-      "Displacement": 133,
-      "Horsepower": 115,
-      "Miles_per_Gallon": null,
-      "Name": "citroen ds-21 pallas",
-      "Origin": "Europe",
-      "Price": 54000,
-      "Weight_in_lbs": 3090,
-      "Year": "1970-01-01",
-      "id": 11
-    },
-    {
-      "Acceleration": 11.5,
-      "Currency": "USD",
-      "Cylinders": 8,
-      "Displacement": 350,
+      "id": 12,
       "Horsepower": 165,
-      "Miles_per_Gallon": null,
-      "Name": "chevrolet chevelle concours (sw)",
-      "Origin": "USA",
-      "Price": 70000,
-      "Weight_in_lbs": 4142,
-      "Year": "1970-01-01",
-      "id": 12
+      "Name": "chevrolet chevelle concours (sw) 11",
+      "Year": "1970"
     },
     {
       "Acceleration": 11,

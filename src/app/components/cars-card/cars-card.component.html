@@ -33,7 +33,12 @@
         </button>
       </div>
     </div>
-    <div class="car-img"><mat-icon>photo_camera</mat-icon></div>
+    <div class="car-img" *ngIf="!car?.photoPath">
+      <mat-icon>photo_camera</mat-icon>
+    </div>
+    <div class="car-img-exist" *ngIf="car?.photoPath">
+      <img src="./assets/car.svg" alt="" />
+    </div>
     <div class="car-data">
       <!--      <div class="car-data-line">-->
       <!--        <div>Origin:</div>-->
