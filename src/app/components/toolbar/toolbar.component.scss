@@ -1,0 +1,21 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.list {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .btns {
+    display: none;
+  }
+
+  .list {
+    display: block;
+  }
+
+  mat-toolbar {
+    height: auto;
+  }
+}

@@ -1,0 +1,57 @@
+<div
+  class="d-flex align-items-center justify-content-center h-100"
+  *ngIf="loading"
+>
+  <mat-spinner> </mat-spinner>
+</div>
+<mat-toolbar color="primary" *ngIf="!loading">
+  <button mat-icon-button class="example-icon">
+    <mat-icon>{{
+      form.get("id")?.value ? "edit" : "add_circle_outline"
+    }}</mat-icon>
+  </button>
+
+  <span>{{ form.get("id")?.value ? "Editing car" : "Adding car" }}</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="warn" (click)="submit()">
+    {{ form.get("id")?.value ? "Save" : "Add" }}
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="form" class="form" *ngIf="!loading">
+  <mat-form-field appearance="outline">
+    <mat-label>Horsepower</mat-label>
+    <input
+      formControlName="Horsepower"
+      matInput
+      type="number"
+      min="1"
+      autocomplete="off"
+      placeholder="min value 1"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input
+      formControlName="Name"
+      matInput
+      type="text"
+      minlength="3"
+      maxlength="50"
+      autocomplete="off"
+      placeholder="at least 3 char"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Year</mat-label>
+    <input matInput [matDatepicker]="dp" [min]="_min" formControlName="Year" />
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker
+      #dp
+      startView="multi-year"
+      (yearSelected)="setMonthAndYear($event, dp)"
+      panelClass="example-month-picker"
+    >
+    </mat-datepicker>
+  </mat-form-field>
+</form>

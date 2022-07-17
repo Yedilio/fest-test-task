@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Delete</h1>
+<div mat-dialog-content class="fs-18">
+  Are sure to delete <span>{{ data.Name }}</span
+  >?
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="close(true)">Yes</button>
+  <button mat-button mat-dialog-close (click)="close()">No</button>
+</div>

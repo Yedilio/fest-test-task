@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" [routerLink]="'car-shop'">
+    <mat-icon>directions_car</mat-icon>
+  </button>
+
+  <span>Car Shop</span>
+  <span class="example-spacer"></span>
+  <!--  <button mat-raised-button color="warn">Add</button>-->
+  <div class="btns">
+    <button mat-button [routerLink]="'car-shop'">Catalog</button>
+    <button mat-button [routerLink]="'/compare-page'">Compare list page</button>
+    <button mat-button>Delivery</button>
+  </div>
+  <div class="list">
+    <button mat-icon-button [matMenuTriggerFor]="hideMenu">
+      <mat-icon>list</mat-icon>
+    </button>
+  </div>
+  <button mat-icon-button [matMenuTriggerFor]="speedMenu">
+    <mat-icon>supervised_user_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #hideMenu="matMenu" class="template-menu template-menu-sm">
+  <button mat-menu-item [routerLink]="'car-shop'">Catalog</button>
+  <button mat-menu-item [routerLink]="'/compare-page'">
+    Compare list page
+  </button>
+  <button mat-menu-item>Delivery</button>
+</mat-menu>
+
+<mat-menu #speedMenu="matMenu" class="template-menu template-menu-sm">
+  <button mat-menu-item>Profile</button>
+  <button mat-menu-item>Name</button>
+  <button mat-menu-item>etc</button>
+</mat-menu>

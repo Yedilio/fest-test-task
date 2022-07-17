@@ -1,0 +1,62 @@
+<div class="cars">
+  <div class="car-block" *ngFor="let car of cars$ | async">
+    <div class="title">
+      {{ car.Name }}
+      <div class="btns">
+        <button
+          mat-raised-button
+          color="primary"
+          class="p-0"
+          matTooltip="add car to compare"
+          (click)="addToCompare(car)"
+        >
+          <mat-icon>compare</mat-icon>
+        </button>
+        <button
+          class="p-0"
+          mat-raised-button
+          color="primary"
+          matTooltip="edit car"
+          [routerLink]="'/add-edit-car'"
+          [queryParams]="{ id: car.id }"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          class="p-0"
+          mat-raised-button
+          color="primary"
+          matTooltip="delete car"
+          (click)="openDelete(car)"
+        >
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="car-img"><mat-icon>photo_camera</mat-icon></div>
+    <div class="car-data">
+      <!--      <div class="car-data-line">-->
+      <!--        <div>Origin:</div>-->
+      <!--        <div class="car-data-line-supHead">{{ car.Origin }}</div>-->
+      <!--      </div>-->
+      <div class="car-data-line">
+        <div>Year:</div>
+        <div class="car-data-line-supHead">{{ car.Year | date: "y" }}</div>
+      </div>
+      <!--      <div class="car-data-line">-->
+      <!--        <div>Weight:</div>-->
+      <!--        <div class="car-data-line-supHead">{{ car.Weight_in_lbs }} lbs</div>-->
+      <!--      </div>-->
+      <div class="car-data-line">
+        <div>Horsepower:</div>
+        <div class="car-data-line-supHead">{{ car.Horsepower }}</div>
+      </div>
+      <div class="car-data-line">
+        <div>Price:</div>
+        <div class="car-data-line-supHead">
+          {{ car.Price ? car.Price + " " + car.Currency : "-" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
